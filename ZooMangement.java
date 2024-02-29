@@ -35,10 +35,10 @@ public class ZooManagement {
 
 
         dolphin.swim();
-        penguin.swim();
+        penguin.swim();}}
 
 
-        Animal dog = new Animal("Canine", "Snoopy", 2, true);
+       /* Animal dog = new Animal("Canine", "Snoopy", 2, true);
 
         System.out.println(myZoo.addAnimal(lion));
         System.out.println(myZoo.addAnimal(dog));
@@ -49,7 +49,10 @@ public class ZooManagement {
         Animal dog2 = new Animal("Canine", "lll", 2, true);
         System.out.println(myZoo.searchAnimal(dog2));
 
-        myZoo.displayAnimals();
+        for (int i = 0; i < myZoo.getNbrAquaticAnimals(); i++) {
+            myZoo.getAquaticAnimal(i).swim();
+        }
+       /* myZoo.displayAnimals();
 
         System.out.println(myZoo);
 
@@ -64,9 +67,10 @@ public class ZooManagement {
         System.out.println("a" + myZoo.removeAnimal(dog));
         myZoo.displayAnimals();
 
+        myZoo.addAquaticAnimal(dolphin);
+        myZoo.addAquaticAnimal(penguin);
 //        System.out.println(tn.esprit.gestionzoo.entitees.Zoo.comparerZoo(myZoo, notMyZoo));
 //        System.out.println(myZoo.isZooFull());
 
     }
-}
-
+}*/
