@@ -32,7 +32,36 @@ public class Zoo {
         this.animals = new Animal[capacity];
         this.count = 0;
         animals = new Animal[NUMBER_OF_CAGES];
-        aquaticAnimals = new AquaticAnimal[MAX_AQUATIC_ANIMALS];    }
+        aquaticAnimals = new AquaticAnimal[MAX_AQUATIC_ANIMALS];
+    }
+    class ZooFullException extends Exception {
+        public ZooFullException(String message) {
+            super(message);
+        }
+    }
+    public void addAnimal(Animal animal) throws ZooFullException {
+        if (count < capacity) {
+            animals[count] = animal;
+            count++;
+            System.out.println("Animal ajouté. Nombre d'animaux dans le zoo : " + count);
+        } else {
+            throw new ZooFullException("Le zoo est plein. Impossible d'ajouter un nouvel animal.");
+        }
+    }
+    public static void main(String[] args) {
+        Zoo zoo = new Zoo(3); // Réduire le nombre de cages à 3
+
+        try {
+            zoo.addAnimal(new Animal());
+            zoo.addAnimal(new Animal());
+            zoo.addAnimal(new Animal());
+            // Essayer d'ajouter un animal de plus provoquera l'exception
+            zoo.addAnimal(new Animal());
+        } catch (ZooFullException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
     public void addAquaticAnimal(AquaticAnimal aquatic) {
         if (nbrAquaticAnimals < MAX_AQUATIC_ANIMALS) {
             aquaticAnimals[nbrAquaticAnimals++] = aquatic;
@@ -171,4 +200,4 @@ public class Zoo {
     @Override
     public String toString() {
         return "Name: " + name + ", City: " + city + ", N° Cages: " + NUMBER_OF_CAGES + ", N° animals: " + nbrAnimals;
-    }*/
+
