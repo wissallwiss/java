@@ -8,6 +8,8 @@ public class Zoo {
     private Animal[] animals;
     private String name, city;
     private int nbrAnimals;
+    private int capacity;
+    private int count;
 
     public Zoo() {
         animals = new Animal[NUMBER_OF_CAGES];
@@ -23,9 +25,12 @@ public class Zoo {
     public int getNbrAquaticAnimals() {
         return nbrAquaticAnimals;
     }
-    public Zoo(String name, String city) {
+    public Zoo(String name, String city,int capacity) {
         this.name = name;
         this.city = city;
+        this.capacity = capacity;
+        this.animals = new Animal[capacity];
+        this.count = 0;
         animals = new Animal[NUMBER_OF_CAGES];
         aquaticAnimals = new AquaticAnimal[MAX_AQUATIC_ANIMALS];    }
     public void addAquaticAnimal(AquaticAnimal aquatic) {
@@ -36,24 +41,32 @@ public class Zoo {
             System.out.println("Le zoo aquatique est plein, impossible d'ajouter plus d'animaux aquatiques.");
         }
     }public float maxPenguinSwimmingDepth() {
-    float maxDepth = 0;
+        float maxDepth = 0;
 
-    // Parcours de tous les animaux aquatiques dans le zoo
-    for (int i = 0; i < nbrAquaticAnimals; i++) {
-        AquaticAnimal animal = aquaticAnimals[i];
-        // Vérifier si l'animal est un pingouin
-        if (animal instanceof Penguin) {
-            // Cast l'animal en pingouin
-            Penguin penguin = (Penguin) animal;
-            // Comparer la profondeur de nage du pingouin actuel avec la profondeur maximale
-            if (penguin.getSwimmingDepth() > maxDepth) {
-                maxDepth = penguin.getSwimmingDepth();
+        // Parcours de tous les animaux aquatiques dans le zoo
+        for (int i = 0; i < nbrAquaticAnimals; i++) {
+            AquaticAnimal animal = aquaticAnimals[i];
+            // Vérifier si l'animal est un pingouin
+            if (animal instanceof Penguin) {
+                // Cast l'animal en pingouin
+                Penguin penguin = (Penguin) animal;
+                // Comparer la profondeur de nage du pingouin actuel avec la profondeur maximale
+                if (penguin.getSwimmingDepth() > maxDepth) {
+                    maxDepth = penguin.getSwimmingDepth();
+                }
             }
         }
-    }
 
-    return maxDepth;
-} public void displayNumberOfAquaticsByType() {
+        return maxDepth;
+        public void addAnimals(Animal animals) {
+            if (count < capacity) {
+                animals[count] = animals;
+                count++;
+            } else {
+                System.out.println("Le zoo est plein. Impossible d'ajouter un nouvel animal.");
+            }
+        }
+    } public void displayNumberOfAquaticsByType() {
         int numberOfDolphins = 0;
         int numberOfPenguins = 0;
 
