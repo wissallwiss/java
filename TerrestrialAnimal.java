@@ -24,5 +24,19 @@ public  class TerrestrialAnimal extends Animal  implements Omnivore<Food> {
             System.out.println("Terrestrial cannot eat this.");
         }
     }
+    @Override
+    public void eatPlant(Food plant) {
+        if (plant == Food.PLANT || plant == Food.BOTH) {
+            System.out.println("Terrestrial is eating plants.");
+        } else {
+            System.out.println("Terrestrial cannot eat this.");
+        }
+    }
+
+    @Override
+    public void eatPlantAndMeat(Food food) {
+        System.out.println("Terrestrial is eating plants and meat.");
+    }
+}
 
 }
