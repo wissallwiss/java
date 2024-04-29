@@ -38,7 +38,7 @@ public class ZooManagement {
         penguin.swim();}}
 
 
-       /* Animal dog = new Animal("Canine", "Snoopy", 2, true);
+  Animal dog = new Animal("Canine", "Snoopy", 2, true);
 
         System.out.println(myZoo.addAnimal(lion));
         System.out.println(myZoo.addAnimal(dog));
@@ -52,7 +52,7 @@ public class ZooManagement {
         for (int i = 0; i < myZoo.getNbrAquaticAnimals(); i++) {
             myZoo.getAquaticAnimal(i).swim();
         }
-       /* myZoo.displayAnimals();
+     myZoo.displayAnimals();
 
         System.out.println(myZoo);
 
@@ -71,6 +71,17 @@ public class ZooManagement {
         myZoo.addAquaticAnimal(penguin);
 //        System.out.println(tn.esprit.gestionzoo.entitees.Zoo.comparerZoo(myZoo, notMyZoo));
 //        System.out.println(myZoo.isZooFull());
+// Test Aquatic
+        Aquatic aquatic = new Aquatic();
+        aquatic.eatMeat(Food.MEAT); // Output: Aquatic is eating meat.
+        aquatic.eatMeat(Food.PLANT); // Output: Aquatic cannot eat this.
+
+        // Test Terrestrial
+        Terrestrial terrestrial = new Terrestrial();
+        terrestrial.eatMeat(Food.MEAT); // Output: Terrestrial is eating meat.
+        terrestrial.eatPlant(Food.PLANT); // Output: Terrestrial is eating plants.
+        terrestrial.eatPlantAndMeat(Food.BOTH); // Output: Terrestrial is eating plants and meat.
+    }
 
     }
 }*/
