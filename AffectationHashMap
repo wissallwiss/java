@@ -1,0 +1,52 @@
+import java.util.*;
+
+public class AffectationHashMap
+{  Map<Employee,Departement> aff = new HashMap<>() ;
+
+    public void ajouterEmployeDepartement(Employee e, Departement d){
+        aff.put(e,d) ;
+    }
+    public void afficherEmployesEtDepartements(){
+        for(Map.Entry<Employee,Departement> entry : aff.entrySet()){
+            System.out.println(entry.getKey() + ";" + entry.getValue());
+        }
+    }
+    public void supprimerEmploye (Employee e){
+        aff.remove(e) ;
+    }
+    public void supprimerEmployeEtDepartement (Employee e, Departement d){
+        aff.remove(e,d) ;
+    }
+    public void afficherEmployes(Employee e){
+        Set<Employee> keys = aff.keySet();
+        Iterator<Employee> iterator = keys.iterator();
+        while (iterator.hasNext()) {
+            System.out.println("Key: " + iterator.next());
+        }
+
+    }
+
+    public void afficherDepartements(){
+        System.out.println(aff.values());
+    }
+
+    public boolean rechercheremployee (Employee e){
+        return  aff.containsKey(e) ;
+    }
+
+
+    public boolean rechercherdepartement (Departement d){
+        return  aff.containsValue(d) ;
+    }
+
+    public TreeMap<Employee,Departement> trierMap(){
+        Comparator<Employee> compid = new Comparator<Employee>() {
+            @Override
+            public int compare(Employee o1, Employee o2) {
+                return o1.getId() - o2.getId();
+            }
+        };
+        return new TreeMap<Employee,Departement>(compid);
+
+    }
+}
