@@ -1,0 +1,83 @@
+public class Employee {
+    int id ;
+
+    String Nom ;
+
+    String Prenom ;
+
+    String NomDepartement ;
+
+    int grade ;
+
+    public Employee(){}
+
+    public Employee(int id, String Nom, String Prenom, String NomDepartement, int grade){
+        this.id = id ;
+        this.Nom = Nom ;
+        this.Prenom = Prenom ;
+        this.NomDepartement = NomDepartement ;
+        this.grade = grade ;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return Nom;
+    }
+
+    public void setNom(String nom) {
+        Nom = nom;
+    }
+
+    public String getPrenom() {
+        return Prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        Prenom = prenom;
+    }
+
+    public String getNomDepartement() {
+        return NomDepartement;
+    }
+
+    public void setNomDepartement(String nomDepartement) {
+        NomDepartement = nomDepartement;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj){
+            return true ;
+        }
+        if(obj == null){
+            return false ;
+        }
+        Employee em = (Employee) obj ;
+        return  id == em.id && em.Nom.equals(((Employee) obj).Nom) ;
+    }
+
+    @Override
+    public String toString() {
+        return ("identifiant = " +id+ "nom = " + Nom + "prenom= " + Prenom+ "grade = " +grade+ "Departement: " +NomDepartement);
+    }
+
+
+    public int compareTo(Employee o) {
+        return this.getId() - o.getId();
+    }
+}
